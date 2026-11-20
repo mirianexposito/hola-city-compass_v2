@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Compass, Heart, MapPin, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { OnboardingFlow } from "@/components/onboarding-flow";
+import { HeroQuestionCard } from "@/components/hero-question-card";
 import { useCity } from "@/components/city-provider";
 import { ActivityCard } from "@/components/activity-card";
 import { AssistantPanel } from "@/components/assistant-panel";
@@ -18,12 +18,6 @@ export function HomePage() {
   return (
     <div className="fade-in">
       <section className="hero">
-        <img
-          className="hero-image"
-          src={cityImage}
-          alt={tr("Basílica del Pilar, Puente de Piedra y río Ebro en Zaragoza", "Basilica del Pilar, Stone Bridge and the Ebro river in Zaragoza")}
-          fetchPriority="high"
-        />
         <div className="hero-inner page-width">
           <div className="hero-copy">
             <span className="hero-eyebrow">
@@ -39,27 +33,31 @@ export function HomePage() {
               {tr("Llegar a una ciudad nueva puede ser emocionante, pero también un poco abrumador. Te ayudamos a encontrar tu sitio.", "Moving to a new city can be exciting, but also a little overwhelming. We help you find your place.")}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild variant="hero" size="roomy">
+              <Button asChild variant="default" size="roomy">
                 <Link to="/onboarding">
                   {tr("Descubrir Zaragoza", "Discover Zaragoza")}
                   <ArrowRight />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="roomy">
+              <Button asChild variant="outline" size="roomy">
                 <Link to="/como-funciona">{tr("Conocer cómo funciona", "See how it works")}</Link>
               </Button>
             </div>
-            <span className="mt-5 flex items-center gap-2 text-[11px] text-hero-muted">
+            <span className="mt-5 flex items-center gap-2 text-[11px] text-muted-foreground">
               <Heart size={13} />
               {tr("No es solo descubrir una ciudad. Es empezar a sentirte parte de ella.", "It's not just discovering a city. It's starting to feel part of it.")}
             </span>
           </div>
-          <div className="hero-panel">
-            {state.completed && !keepFlow ? (
-              <AssistantPanel />
-            ) : (
-              <OnboardingFlow embedded onFinished={() => setKeepFlow(true)} />
-            )}
+          <div className="hero-visual">
+            <img
+              className="hero-photo"
+              src={cityImage}
+              alt={tr("Basílica del Pilar, Puente de Piedra y río Ebro en Zaragoza", "Basilica del Pilar, Stone Bridge and the Ebro river in Zaragoza")}
+              fetchPriority="high"
+            />
+            <div className="hero-card-wrap">
+              {state.completed && !keepFlow ? <AssistantPanel /> : <HeroQuestionCard />}
+            </div>
           </div>
         </div>
       </section>
