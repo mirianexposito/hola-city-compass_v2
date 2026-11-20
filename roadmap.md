@@ -1,7 +1,7 @@
 # Hola Ciudad
 
-- [ ] Permitir escribir a Pilar y recibir respuestas directamente en la home sin exigir una cuenta.
-- [ ] Verificar la conversación, las preguntas rápidas y su conservación al recargar en ordenador y móvil.
+- [x] Permitir escribir a Pilar y recibir respuestas directamente en la home sin exigir una cuenta.
+- [x] Verificar la conversación, las preguntas rápidas y su conservación al recargar en ordenador y móvil.
 
 - [x] Quitar el resumen editable del alta y conservar el botón para volver al cuestionario sin perder respuestas ni datos de registro.
 - [x] Verificar navegación y conservación de respuestas en ordenador y móvil.
