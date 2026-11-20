@@ -32,7 +32,7 @@ const icons = [Landmark, Coffee, Dumbbell, Trees, Music, Users, GraduationCap, S
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function OnboardingFlow() {
+export function OnboardingFlow({ embedded = false, onFinished }: { embedded?: boolean; onFinished?: () => void } = {}) {
   const { state, ready, updatePreferences, saveProfile, profileError, retryProfile } = useCity();
   const { user } = useAccount();
   const [step, setStep] = useState(0);
@@ -77,13 +77,14 @@ export function OnboardingFlow() {
     if (!valid) return;
     if (step === steps.length - 1) {
       setFinished(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      onFinished?.();
+      if (!embedded) window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     setCustomValid(true);
     setFurthestStep((previous) => Math.max(previous, step + 1));
     setStep((s) => s + 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!embedded) window.scrollTo({ top: 0, behavior: "smooth" });
   }
   function returnToQuestion(index: number) {
     setCustomValid(true);
@@ -91,7 +92,7 @@ export function OnboardingFlow() {
     setFinished(false);
     setSaveError("");
     setRegisterError("");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (!embedded) window.scrollTo({ top: 0, behavior: "smooth" });
   }
   async function register(event: FormEvent) {
     event.preventDefault();
@@ -136,7 +137,7 @@ export function OnboardingFlow() {
         </p>
       </section>
     );
-  if (state.completed && user) return <ProfileEditor />;
+  if (state.completed && user && !embedded) return <ProfileEditor />;
   return (
     <section className="onboarding fade-in">
       {profileError && (

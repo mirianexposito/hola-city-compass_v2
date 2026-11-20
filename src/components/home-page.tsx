@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Compass, Heart, MapPin, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { HolaFace } from "@/components/hola-face";
+import { useState } from "react";
+import { OnboardingFlow } from "@/components/onboarding-flow";
+import { useCity } from "@/components/city-provider";
 import { ActivityCard } from "@/components/activity-card";
 import { AssistantPanel } from "@/components/assistant-panel";
 import { WeekSection } from "@/components/week-section";
@@ -10,6 +12,8 @@ import { activities, cityImage } from "@/lib/city-data";
 
 export function HomePage() {
   const lang = useLanguage();
+  const { state } = useCity();
+  const [keepFlow, setKeepFlow] = useState(false);
   const tr = (es: string, en: string) => (lang === "en" ? en : es);
   return (
     <div className="fade-in">
@@ -50,18 +54,13 @@ export function HomePage() {
               {tr("No es solo descubrir una ciudad. Es empezar a sentirte parte de ella.", "It's not just discovering a city. It's starting to feel part of it.")}
             </span>
           </div>
-          <div className="hero-welcome">
-            <HolaFace />
-            <div>
-              <span className="block text-[13px] font-bold">{tr("¡Zaragoza te estaba esperando!", "Zaragoza was waiting for you!")}</span>
-              <span className="text-[11px] text-muted-foreground">{tr("Vamos a descubrirla juntos.", "Let's discover it together.")}</span>
-            </div>
-            <Sparkles size={16} className="text-primary" />
+          <div className="hero-panel">
+            {state.completed && !keepFlow ? (
+              <AssistantPanel />
+            ) : (
+              <OnboardingFlow embedded onFinished={() => setKeepFlow(true)} />
+            )}
           </div>
-          <span className="hero-place">
-            <MapPin size={12} />
-            {tr("Un atardecer junto al Ebro · Zaragoza", "Sunset by the Ebro · Zaragoza")}
-          </span>
         </div>
       </section>
       <div className="page-width">
@@ -97,7 +96,7 @@ export function HomePage() {
             </div>
           ))}
         </section>
-        <div className="home-content">
+        <div className="home-content home-content-single">
           <section>
             <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
               <div>
@@ -123,7 +122,6 @@ export function HomePage() {
               {tr("Ideas de demostración. Consulta las fuentes oficiales antes de tu visita.", "Demo ideas. Check official sources before your visit.")}
             </p>
           </section>
-          <AssistantPanel />
         </div>
       </div>
       <WeekSection />
