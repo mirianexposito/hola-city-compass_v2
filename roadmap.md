@@ -1,5 +1,8 @@
 # Hola Ciudad
 
+- [x] Ampliar y reencuadrar la foto, redondear su esquina inferior derecha y situar parte del círculo granate debajo.
+- [x] Adaptar la altura de la tarjeta a cada pregunta sin desplazamiento interior y comprobar ordenador y móvil.
+
 - [x] Reducir la cabecera y la portada, extender la foto hasta el borde derecho, recuperar los adornos de la referencia y desplazar la tarjeta de Pilar.
 - [x] Comprobar la composición, cuestionario y chat con perfil local en ordenador y móvil, sin desbordamiento horizontal.
 
