@@ -1,5 +1,8 @@
 # Hola Ciudad
 
+- [x] Reducir la cabecera y la portada, extender la foto hasta el borde derecho, recuperar los adornos de la referencia y desplazar la tarjeta de Pilar.
+- [x] Comprobar la composición, cuestionario y chat con perfil local en ordenador y móvil, sin desbordamiento horizontal.
+
 - [x] Reorientar la home hacia personas recién llegadas, siguiendo la propuesta visual sin modificar el encabezado.
 - [x] Verificar cuestionario, accesos prácticos, chat con perfil local y presentación en ordenador y móvil; el encabezado conservado tiene un desbordamiento previo en pantallas estrechas.
 

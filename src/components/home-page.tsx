@@ -91,6 +91,8 @@ export function HomePage() {
             </span>
           </div>
           <div className="hero-visual">
+            <span className="hero-photo-outline" aria-hidden="true" />
+            <span className="hero-photo-accent" aria-hidden="true" />
             <img
               className="hero-photo"
               src={cityImage}

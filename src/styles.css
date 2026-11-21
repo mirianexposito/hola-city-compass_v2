@@ -126,7 +126,7 @@
 }
 .site-header {
   position: relative;
-  height: 88px;
+  height: 64px;
   background: var(--card);
   border-bottom: 1px solid var(--border);
 }
@@ -705,7 +705,7 @@
     width: calc(100% - 40px);
   }
   .site-header {
-    height: 72px;
+    height: 64px;
   }
   .site-header nav {
     display: none;
@@ -1062,7 +1062,7 @@
   }
 }
 
-/* Newcomer home: shared navigation and other screens stay unchanged. */
+/* Newcomer home presentation stays scoped to the arrival layout. */
 :root {
   --arrival-surface: oklch(0.958 0.009 75);
   --arrival-night: oklch(0.32 0.029 238);
@@ -1081,9 +1081,9 @@
 .arrival-home .hero-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
-  gap: 64px;
+  gap: 48px;
   align-items: center;
-  padding-block: 48px 56px;
+  padding-block: 32px 40px;
 }
 .arrival-home .hero-copy {
   color: var(--foreground);
@@ -1109,25 +1109,48 @@
 }
 .arrival-home .hero-visual {
   position: relative;
-  height: 430px;
+  height: 390px;
+  width: calc(100% + max(48px, (100vw - 1240px) / 2));
   min-width: 0;
 }
+.arrival-home .hero-photo-outline {
+  position: absolute;
+  top: 24px;
+  left: 5%;
+  width: 54px;
+  height: 54px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.arrival-home .hero-photo-accent {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  width: 38%;
+  height: 200px;
+  background: var(--secondary);
+  border-radius: 64% 36% 42% 58% / 44% 54% 46% 56%;
+  transform: rotate(-9deg);
+  pointer-events: none;
+}
 .arrival-home .hero-photo {
+  position: relative;
   width: 88%;
-  height: 370px;
+  height: 340px;
   margin-left: auto;
   object-fit: cover;
   object-position: 62% center;
-  border-radius: 130px 60px 130px 60px;
+  border-radius: 130px 0 0 60px;
   display: block;
 }
 .arrival-home .hero-card-wrap {
   position: absolute;
-  left: 0;
-  top: 106px;
+  left: -24px;
+  top: 128px;
   width: 320px;
   max-width: 90%;
-  max-height: 324px;
+  max-height: 300px;
   overflow-y: auto;
   border-radius: 8px;
   box-shadow: var(--shadow-float);
@@ -1179,9 +1202,25 @@
   color: var(--primary-foreground);
 }
 .arrival-home .hero-card-wrap .assistant-panel {
+  height: 330px;
   padding: 16px;
   background: var(--card);
   border-radius: 8px;
+}
+.arrival-home .hero-card-wrap .assistant-panel > div:first-child {
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+.arrival-home .hero-card-wrap .assistant-panel .hola-face {
+  width: 32px;
+  height: 32px;
+}
+.arrival-home .hero-card-wrap .assistant-panel textarea {
+  min-height: 40px;
+  max-height: 64px;
+}
+.arrival-home .hero-card-wrap .assistant-panel > div:has(form) {
+  flex-shrink: 0;
 }
 .arrival-home .hero-card-wrap .assistant-panel h2 {
   font-size: 18px;
@@ -1190,11 +1229,12 @@
   display: none;
 }
 .arrival-home .hero-card-wrap:has(.assistant-panel) {
-  top: 32px;
-  max-height: 398px;
+  top: 96px;
+  max-height: 332px;
 }
 .arrival-home .home-chat-conversation {
-  height: 170px;
+  height: auto;
+  flex: 1;
   margin-top: 12px;
 }
 .arrival-section {
@@ -1380,13 +1420,13 @@
     font-size: 14px;
   }
   .arrival-home .hero-visual {
-    height: 405px;
+    height: 380px;
   }
   .arrival-home .hero-photo {
-    height: 335px;
+    height: 320px;
   }
   .arrival-home .hero-card-wrap {
-    top: 85px;
+    top: 112px;
     width: 300px;
     max-height: 320px;
   }
@@ -1419,21 +1459,21 @@
   }
   .arrival-home .hero-visual {
     height: 380px;
-    width: 100%;
-    max-width: 480px;
-    margin-inline: auto;
+    width: calc(100% + 20px);
+    margin-inline: 0;
   }
   .arrival-home .hero-photo {
     height: 310px;
-    border-radius: 90px 40px 90px 40px;
+    border-radius: 90px 0 0 40px;
   }
   .arrival-home .hero-card-wrap {
-    top: 64px;
+    left: 0;
+    top: 84px;
     max-height: 316px;
   }
   .arrival-home .hero-card-wrap:has(.assistant-panel) {
-    top: 0;
-    max-height: 380px;
+    top: 48px;
+    max-height: 332px;
   }
   .arrival-section {
     padding-block: 40px;

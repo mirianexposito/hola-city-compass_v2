@@ -61,12 +61,12 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <Button asChild variant="ghost" size="icon" title={t("Mis primeros siete días")}>
+          <Button asChild variant="ghost" size="icon" className="hidden sm:inline-flex" title={t("Mis primeros siete días")}>
             <Link to="/primeros-dias" aria-label={t("Mis primeros siete días")}>
               <CalendarDays />
             </Link>
           </Button>
-          <Button asChild variant="ghost" size="icon" title={t("Mis favoritos")}>
+          <Button asChild variant="ghost" size="icon" className="hidden sm:inline-flex" title={t("Mis favoritos")}>
             <Link to="/planes" search={{ guardados: true }} aria-label={t("Mis favoritos")}>
               <Heart />
             </Link>
