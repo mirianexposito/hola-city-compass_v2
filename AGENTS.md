@@ -51,6 +51,7 @@ use the editor.
 - Keep personalization, filters and simulated assistant logic in the browser-safe city-logic module; isolate its reply contract so a later service can replace the simulator.
 - Keep activity and official-resource data in city-data and use uploaded asset pointers; do not hotlink photographs or present unconfirmed activities as bookable events.
 - Use semantic styles in the global stylesheet and named Button variants so presentation stays consistent across all screens.
+- Scope newcomer-home presentation under arrival-home and reuse existing questionnaire, chat and activity controls so other screens and shared navigation remain unchanged.
 - Reuse NeighborhoodSelect for onboarding and profile editing with one grouped city-data catalog; this keeps location choices consistent without free-text entry.
 - Define questionnaire steps in the browser-safe questionnaire module and reuse CustomAnswerChoice for goals and desired activities; free answers stay in existing preference arrays alongside preset selections without changing storage or recommendation contracts.
 - Keep questionnaire navigation in OnboardingFlow using the shared step catalog and CityProvider answers; returning from registration to the actual questions must preserve other answers and unsubmitted registration fields.

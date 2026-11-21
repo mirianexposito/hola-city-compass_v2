@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   head: () => {
     const metadata = pageHead(
       "Tu nueva ciudad empieza aquí",
-      "Bienvenido a Hola Zaragoza, tu amiga mañica para descubrir Zaragoza, encontrar planes y sentirte parte de la ciudad.",
+      "Acabas de llegar a Zaragoza: Pilar, tu amiga mañica, te acompaña con trámites, recursos de barrio y primeros pasos para sentirte en casa.",
     );
     return {
       ...metadata,

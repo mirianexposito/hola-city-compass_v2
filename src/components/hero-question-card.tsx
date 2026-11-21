@@ -54,7 +54,8 @@ export function HeroQuestionCard() {
       {done ? (
         <>
           <p className="hero-card-bubble">
-            ¡Perfecto! Ya tengo una idea de lo que te gusta. Crea tu cuenta y te preparo tu Zaragoza.
+            ¡Perfecto! Ya tengo una idea de lo que te gusta. Crea tu cuenta y te preparo tu
+            Zaragoza.
           </p>
           <Button asChild className="mt-4 w-full">
             <Link to="/onboarding">
@@ -71,11 +72,16 @@ export function HeroQuestionCard() {
           </p>
           <div className="hero-card-options">
             {current.key === "neighborhood" ? (
-              <NeighborhoodSelect value={state.preferences.neighborhood} onChange={choose} disabled={!ready} />
+              <NeighborhoodSelect
+                value={state.preferences.neighborhood}
+                onChange={choose}
+                disabled={!ready}
+              />
             ) : (
               current.options.map((v) => (
-                <button
+                <Button
                   key={v}
+                  variant="choice"
                   type="button"
                   className="hero-chip"
                   aria-pressed={isOn(v)}
@@ -83,16 +89,26 @@ export function HeroQuestionCard() {
                   onClick={() => choose(v)}
                 >
                   {v}
-                </button>
+                </Button>
               ))
             )}
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <Button variant="ghost" size="sm" disabled={step === 0} onClick={() => setStep((s) => s - 1)}>
+            <Button
+              variant="ghost"
+              size="sm"
+              disabled={step === 0}
+              onClick={() => setStep((s) => s - 1)}
+            >
               <ArrowLeft />
               Atrás
             </Button>
-            <Button size="icon" aria-label="Siguiente pregunta" disabled={!valid || !ready} onClick={() => setStep((s) => s + 1)}>
+            <Button
+              size="icon"
+              aria-label="Siguiente pregunta"
+              disabled={!valid || !ready}
+              onClick={() => setStep((s) => s + 1)}
+            >
               <ArrowRight />
             </Button>
           </div>

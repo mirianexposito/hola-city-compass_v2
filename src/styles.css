@@ -58,7 +58,7 @@
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: #9E5546;
+  --primary: #9e5546;
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.93 0.026 132);
   --secondary-foreground: oklch(0.39 0.055 139);
@@ -79,16 +79,8 @@
   --cachirulo-red: var(--primary);
   --cachirulo-stripe: color-mix(in oklch, var(--card) 55%, transparent);
   --cachirulo-pattern:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 3px,
-      var(--cachirulo-stripe) 3px 6px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 3px,
-      var(--cachirulo-stripe) 3px 6px
-    );
+    repeating-linear-gradient(90deg, transparent 0 3px, var(--cachirulo-stripe) 3px 6px),
+    repeating-linear-gradient(0deg, transparent 0 3px, var(--cachirulo-stripe) 3px 6px);
   --gold: oklch(0.76 0.105 78);
   --shadow-soft: 0 6px 22px oklch(0.32 0.029 238 / 5%);
   --shadow-float: 0 8px 30px oklch(0.25 0.029 238 / 14%);
@@ -480,13 +472,19 @@
   display: flex;
   flex-direction: column;
 }
-.auth-layout main { flex: 1; }
-.auth-layout .account-page { width: min(440px, calc(100% - 40px)); }
-.auth-layout .site-footer { margin-bottom: 0; }
+.auth-layout main {
+  flex: 1;
+}
+.auth-layout .account-page {
+  width: min(440px, calc(100% - 40px));
+}
+.auth-layout .site-footer {
+  margin-bottom: 0;
+}
 :root {
-  --google-button-background: #FFFFFF;
+  --google-button-background: #ffffff;
   --google-button-border: #747775;
-  --google-button-text: #1F1F1F;
+  --google-button-text: #1f1f1f;
 }
 .google-auth-button {
   background: var(--google-button-background);
@@ -510,11 +508,17 @@
   min-height: 48px;
 }
 @media (max-width: 520px) {
-  .account-page h1 { font-size: 28px; }
+  .account-page h1 {
+    font-size: 28px;
+  }
 }
 @media (min-width: 801px) and (max-width: 1000px) {
-  .site-header nav { gap: 12px; }
-  .site-header .nav-item { font-size: 12px; }
+  .site-header nav {
+    gap: 12px;
+  }
+  .site-header .nav-item {
+    font-size: 12px;
+  }
 }
 .page-heading {
   padding-top: 43px;
@@ -1058,60 +1062,421 @@
   }
 }
 
-/* Hero claro con foto y tarjeta de Pilar */
-.hero { height: auto; min-height: 0; background: var(--background); overflow: visible; }
-.hero::after { display: none; }
-.hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
-  gap: 48px;
-  align-items: center;
-  padding-block: 48px 72px;
+/* Newcomer home: shared navigation and other screens stay unchanged. */
+:root {
+  --arrival-surface: oklch(0.958 0.009 75);
+  --arrival-night: oklch(0.32 0.029 238);
+  --arrival-night-card: oklch(0.39 0.027 238);
+  --arrival-night-muted: oklch(0.85 0.012 238);
 }
-.hero-copy, .hero-copy h1 { color: var(--foreground); }
-.hero-copy p { color: var(--muted-foreground); }
-.hero-eyebrow { color: var(--primary); }
-.hero-visual { position: relative; padding-left: 40px; }
-.hero-photo {
-  width: 100%;
-  aspect-ratio: 1 / 0.82;
+.arrival-home .hero {
+  height: auto;
+  min-height: 0;
+  background: var(--arrival-surface);
+  overflow: hidden;
+}
+.arrival-home .hero::after {
+  display: none;
+}
+.arrival-home .hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 64px;
+  align-items: center;
+  padding-block: 48px 56px;
+}
+.arrival-home .hero-copy {
+  color: var(--foreground);
+  max-width: 500px;
+}
+.arrival-home .hero-copy h1 {
+  color: var(--foreground);
+  font-size: 48px;
+  line-height: 1.12;
+  margin: 18px 0;
+}
+.arrival-home .hero-copy p {
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 430px;
+}
+.arrival-note {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 650px;
+}
+.arrival-home .hero-visual {
+  position: relative;
+  height: 430px;
+  min-width: 0;
+}
+.arrival-home .hero-photo {
+  width: 88%;
+  height: 370px;
+  margin-left: auto;
   object-fit: cover;
-  border-radius: 28px;
+  object-position: 62% center;
+  border-radius: 130px 60px 130px 60px;
   display: block;
 }
-.hero-card-wrap {
-  position: relative;
-  margin: -150px 80px 0 -40px;
-  max-height: 420px;
+.arrival-home .hero-card-wrap {
+  position: absolute;
+  left: 0;
+  top: 106px;
+  width: 320px;
+  max-width: 90%;
+  max-height: 324px;
   overflow-y: auto;
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--shadow-float);
+  border: 1px solid var(--border);
 }
-.hero-card { background: var(--card); padding: 18px; border-radius: 20px; }
-.hero-card-wrap .assistant-panel { border-radius: 20px; }
-.hero-card-bubble {
+.arrival-home .hero-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 8px;
+}
+.arrival-home .hero-card .hola-face {
+  width: 32px;
+  height: 32px;
+}
+.arrival-home .hero-card .hola-face svg {
+  width: 23px;
+  height: 23px;
+}
+.arrival-home .hero-card-bubble {
   margin-top: 12px;
   background: var(--muted);
-  border-radius: 12px;
-  padding: 10px 13px;
-  font-size: 13px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 12px;
   line-height: 1.5;
 }
-.hero-card-options { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
-.hero-card-options > :only-child:not(.hero-chip) { width: 100%; }
-.hero-chip {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 12.5px;
+.arrival-home .hero-card-options {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.arrival-home .hero-card-options > :only-child:not(.hero-chip) {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+.arrival-home .hero-chip {
+  height: auto;
+  min-height: 34px;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 6px 8px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+.arrival-home .hero-chip[aria-pressed="true"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+.arrival-home .hero-card-wrap .assistant-panel {
+  padding: 16px;
   background: var(--card);
-  transition: background 0.15s, border-color 0.15s;
+  border-radius: 8px;
 }
-.hero-chip:hover { border-color: var(--primary); }
-.hero-chip[aria-pressed="true"] { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); }
-@media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 28px; padding-block: 32px 40px; }
-  .hero-visual { padding-left: 0; }
-  .hero-card-wrap { margin: -90px 16px 0; }
+.arrival-home .hero-card-wrap .assistant-panel h2 {
+  font-size: 18px;
 }
-.home-content-single { grid-template-columns: 1fr !important; }
+.arrival-home .hero-card-wrap .assistant-panel > p {
+  display: none;
+}
+.arrival-home .hero-card-wrap:has(.assistant-panel) {
+  top: 32px;
+  max-height: 398px;
+}
+.arrival-home .home-chat-conversation {
+  height: 170px;
+  margin-top: 12px;
+}
+.arrival-section {
+  padding-block: 64px;
+}
+.arrival-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.arrival-home .section-title {
+  font-size: 28px;
+  max-width: 500px;
+  line-height: 1.22;
+}
+.arrival-heading p,
+.arrival-stage p,
+.arrival-week p,
+.arrival-resource p,
+.arrival-help p,
+.arrival-local p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+.arrival-stages,
+.arrival-local-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.arrival-stage {
+  background: var(--arrival-surface);
+  border-radius: 8px;
+  padding: 24px;
+}
+.arrival-home h3 {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 750;
+}
+.arrival-stage h3 {
+  margin: 10px 0 8px;
+}
+.arrival-week {
+  background: var(--arrival-night);
+  color: var(--hero-foreground);
+  padding-block: 56px;
+}
+.arrival-week-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.8fr);
+  gap: 58px;
+  align-items: center;
+}
+.arrival-week .eyebrow {
+  color: var(--hero-muted);
+}
+.arrival-week p {
+  color: var(--arrival-night-muted);
+}
+.arrival-week-days {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.arrival-week-days article {
+  background: var(--arrival-night-card);
+  border-radius: 8px;
+  padding: 22px 18px;
+}
+.arrival-week-days h3 {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.arrival-week-days p {
+  font-size: 12px;
+}
+.arrival-essentials {
+  background: var(--arrival-surface);
+}
+.arrival-essentials-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.85fr);
+  gap: 20px;
+}
+.arrival-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.arrival-resource {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 20px;
+  height: auto;
+  font-weight: 400;
+}
+.arrival-resource-number {
+  display: flex;
+  justify-content: space-between;
+  color: var(--primary);
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+.arrival-resource h3 {
+  font-size: 14px;
+}
+.arrival-source {
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+.arrival-help {
+  background: var(--chat);
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.arrival-help h3 {
+  font-size: 16px;
+}
+.arrival-help blockquote {
+  background: var(--card);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.arrival-home .activity-photo {
+  height: 190px;
+}
+.arrival-local {
+  background: var(--arrival-surface);
+}
+.arrival-local-grid {
+  margin-top: 28px;
+}
+.arrival-local-grid article {
+  background: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 24px;
+}
+.arrival-local-grid article p {
+  margin-top: 8px;
+}
+.arrival-local-grid .arrival-local-photo {
+  padding: 0;
+}
+.arrival-local-photo img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+.arrival-local-photo > div {
+  padding: 20px 24px;
+}
+.arrival-local-symbol {
+  display: block;
+  color: var(--primary);
+  font-size: 30px;
+  font-family: var(--font-display);
+  margin-bottom: 18px;
+}
+@media (max-width: 1050px) {
+  .arrival-home .hero-inner {
+    gap: 28px;
+  }
+  .arrival-home .hero-copy h1 {
+    font-size: 40px;
+  }
+  .arrival-home .hero-copy p {
+    font-size: 14px;
+  }
+  .arrival-home .hero-visual {
+    height: 405px;
+  }
+  .arrival-home .hero-photo {
+    height: 335px;
+  }
+  .arrival-home .hero-card-wrap {
+    top: 85px;
+    width: 300px;
+    max-height: 320px;
+  }
+  .arrival-heading {
+    gap: 32px;
+  }
+  .arrival-week-layout {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+  .arrival-week-layout > div:first-child {
+    max-width: 550px;
+  }
+  .arrival-essentials-layout {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .arrival-home .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 32px 36px;
+  }
+  .arrival-home .hero-copy h1 {
+    font-size: 36px;
+  }
+  .arrival-home .hero-copy,
+  .arrival-home .hero-copy p {
+    max-width: 100%;
+  }
+  .arrival-home .hero-visual {
+    height: 380px;
+    width: 100%;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+  .arrival-home .hero-photo {
+    height: 310px;
+    border-radius: 90px 40px 90px 40px;
+  }
+  .arrival-home .hero-card-wrap {
+    top: 64px;
+    max-height: 316px;
+  }
+  .arrival-home .hero-card-wrap:has(.assistant-panel) {
+    top: 0;
+    max-height: 380px;
+  }
+  .arrival-section {
+    padding-block: 40px;
+  }
+  .arrival-home .section-title {
+    font-size: 25px;
+  }
+  .arrival-heading {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .arrival-stages,
+  .arrival-local-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .arrival-stage {
+    padding: 22px;
+  }
+  .arrival-week {
+    padding-block: 40px;
+  }
+  .arrival-week-days {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .arrival-week-days article {
+    padding: 20px;
+  }
+  .arrival-essentials-layout {
+    grid-template-columns: 1fr;
+  }
+  .arrival-resource-grid {
+    grid-template-columns: 1fr;
+  }
+  .arrival-home .activity-grid {
+    grid-template-columns: 1fr;
+  }
+  .arrival-home .activity-photo {
+    height: 220px;
+  }
+  .arrival-local-photo img {
+    height: 180px;
+  }
+}

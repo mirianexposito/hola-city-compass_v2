@@ -1,5 +1,8 @@
 # Hola Ciudad
 
+- [x] Reorientar la home hacia personas recién llegadas, siguiendo la propuesta visual sin modificar el encabezado.
+- [x] Verificar cuestionario, accesos prácticos, chat con perfil local y presentación en ordenador y móvil; el encabezado conservado tiene un desbordamiento previo en pantallas estrechas.
+
 - [x] Permitir escribir a Pilar y recibir respuestas directamente en la home sin exigir una cuenta.
 - [x] Verificar la conversación, las preguntas rápidas y su conservación al recargar en ordenador y móvil.
 
