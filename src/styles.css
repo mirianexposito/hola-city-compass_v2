@@ -1083,7 +1083,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
   gap: 48px;
   align-items: center;
-  padding-block: 32px 40px;
+  padding-block: 32px 0;
 }
 .arrival-home .hero-copy {
   color: var(--foreground);
@@ -1110,17 +1110,17 @@
 .arrival-home .hero-visual {
   position: relative;
   display: grid;
-  min-height: 490px;
+  min-height: 470px;
   width: calc(100% + max(48px, (100vw - 1240px) / 2));
   min-width: 0;
 }
 .arrival-home .hero-photo-outline {
   position: absolute;
-  z-index: 2;
+  z-index: 0;
   top: 24px;
-  left: -3%;
-  width: 54px;
-  height: 54px;
+  left: -24px;
+  width: 100px;
+  height: 100px;
   border: 2px solid var(--primary);
   border-radius: 50%;
   pointer-events: none;
@@ -1143,7 +1143,8 @@
   z-index: 1;
   width: calc(100% + 32px);
   max-width: none;
-  height: 470px;
+  height: 100%;
+  min-height: 470px;
   margin-left: -32px;
   object-fit: cover;
   object-position: 80% center;
@@ -1426,10 +1427,10 @@
     font-size: 14px;
   }
   .arrival-home .hero-visual {
-    min-height: 470px;
+    min-height: 440px;
   }
   .arrival-home .hero-photo {
-    height: 440px;
+    min-height: 440px;
   }
   .arrival-home .hero-card-wrap {
     margin-top: 112px;
@@ -1453,7 +1454,7 @@
   .arrival-home .hero-inner {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding-block: 32px 36px;
+    padding-block: 32px 0;
   }
   .arrival-home .hero-copy h1 {
     font-size: 36px;
@@ -1463,13 +1464,13 @@
     max-width: 100%;
   }
   .arrival-home .hero-visual {
-    min-height: 450px;
+    min-height: 390px;
     width: calc(100% + 20px);
     margin-inline: 0;
   }
   .arrival-home .hero-photo {
     width: 100%;
-    height: 390px;
+    min-height: 390px;
     margin-left: 0;
     border-radius: 90px 0 56px 40px;
   }
