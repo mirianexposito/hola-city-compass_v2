@@ -1073,7 +1073,8 @@
   height: auto;
   min-height: 0;
   background: var(--arrival-surface);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 .arrival-home .hero::after {
   display: none;
@@ -1110,7 +1111,7 @@
 .arrival-home .hero-visual {
   position: relative;
   display: grid;
-  min-height: 470px;
+  height: 470px;
   width: calc(100% + max(48px, (100vw - 1240px) / 2));
   min-width: 0;
 }
@@ -1152,9 +1153,9 @@
   display: block;
 }
 .arrival-home .hero-card-wrap {
-  position: relative;
-  grid-area: 1 / 1;
-  align-self: start;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
   margin-left: -64px;
   margin-top: 128px;
@@ -1246,6 +1247,9 @@
 }
 .arrival-section {
   padding-block: 64px;
+}
+.arrival-home .hero + .arrival-section {
+  padding-top: 96px;
 }
 .arrival-heading {
   display: grid;
@@ -1427,7 +1431,7 @@
     font-size: 14px;
   }
   .arrival-home .hero-visual {
-    min-height: 440px;
+    height: 440px;
   }
   .arrival-home .hero-photo {
     min-height: 440px;
@@ -1464,7 +1468,7 @@
     max-width: 100%;
   }
   .arrival-home .hero-visual {
-    min-height: 390px;
+    height: 390px;
     width: calc(100% + 20px);
     margin-inline: 0;
   }
@@ -1487,6 +1491,9 @@
   }
   .arrival-section {
     padding-block: 40px;
+  }
+  .arrival-home .hero + .arrival-section {
+    padding-top: 144px;
   }
   .arrival-home .section-title {
     font-size: 25px;
